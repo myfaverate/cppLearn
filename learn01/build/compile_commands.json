@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/SoftWare/LanguageProjects/C++Projects/learn01/build",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -g -std=c++23 -o CMakeFiles\\learn01.dir\\main.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\main.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\main.cpp",
+  "output": "CMakeFiles\\learn01.dir\\main.cpp.obj"
+},
+{
+  "directory": "D:/SoftWare/LanguageProjects/C++Projects/learn01/build",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -g -std=c++23 -o CMakeFiles\\learn01.dir\\src\\source\\add.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\source\\add.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\source\\add.cpp",
+  "output": "CMakeFiles\\learn01.dir\\src\\source\\add.cpp.obj"
+}
+]

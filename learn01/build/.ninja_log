@@ -1,0 +1,5 @@
+# ninja log v6
+31	2659	7729114867302272	CMakeFiles/learn01.dir/main.cpp.obj	852e35f57cb39d32
+144	383	7729115208882810	learn01.exe	e39cde60cfeb1e75
+40	176	7729112937033845	CMakeFiles/learn01.dir/add.cpp.obj	eea93c938df8f32a
+27	143	7729115207720760	CMakeFiles/learn01.dir/src/source/add.cpp.obj	e19faae13d846fad
