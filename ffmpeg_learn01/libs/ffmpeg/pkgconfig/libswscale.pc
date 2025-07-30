@@ -1,0 +1,14 @@
+prefix=./windows_build
+exec_prefix=${prefix}
+libdir=./windows_build/lib
+includedir=./windows_build/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 8.3.100
+Requires: 
+Requires.private: libavutil >= 59.39.100
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm -latomic
+Cflags: -I${includedir}
