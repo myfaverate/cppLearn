@@ -297,6 +297,8 @@ void extractYumPcmFromMp4(const std::string &videoPath) {
                             avFrame->data[2] + i * avFrame->linesize[2]),
                         avFrame->width / 2);
                 }
+                // 播放视频
+                // ffplay -f rawvideo -vf format=yuv420p -video_size 662x1280 -framerate 60 output.yuv
             }
         } else if (avPacket->stream_index == audioStreamIndex) {
             if (avcodec_send_packet(audioCodecContext, avPacket) < 0) {
@@ -308,47 +310,35 @@ void extractYumPcmFromMp4(const std::string &videoPath) {
                 // LR LR ...
                 // or
                 // LL...
-                // RR... 
-                int dataSize =
-                    av_get_bytes_per_sample(audioCodecContext->sample_fmt);
+                // RR...
+                // 这里是planner格式
+                // 播放音频  ffplay -f f32le -ar 44100 -ch_layout stereo -i output.pcm
+                int dataSize = av_get_bytes_per_sample(audioCodecContext->sample_fmt);
                 int nb_channels = audioCodecContext->ch_layout.nb_channels;
-                bool isPlanar =
-                    av_sample_fmt_is_planar(audioCodecContext->sample_fmt);
                 if (dataSize < 0) {
                     std::cerr << "Unsupported sample format." << std::endl;
                     break;
                 }
-                // for(int i = 0; i < avFrame->nb_samples; i++) {
-                //     for(int ch = 0; ch < nb_channels; ch++) {
-                //         const uint8_t *sample =
-                //         avFrame->data[ch] + i * dataSize;
-                //         audioFile.write(reinterpret_cast<const char
-                //         *>(sample),
-                //                         dataSize);
-                //     }
-                // }
-                if (isPlanar) {
-                    // Planar: 每个通道单独一块数据
-                    for (int i = 0; i < avFrame->nb_samples; i++) {
-                        for (int ch = 0; ch < nb_channels; ch++) {
-                            const uint8_t *sample =
-                                avFrame->data[ch] + i * dataSize;
-                            audioFile.write(
-                                reinterpret_cast<const char *>(sample),
-                                dataSize);
-                        }
+                for(int i = 0; i < avFrame->nb_samples; i++) {
+                    for(int ch = 0; ch < nb_channels; ch++) {
+                        const uint8_t *sample =
+                        avFrame->data[ch] + i * dataSize;
+                        audioFile.write(reinterpret_cast<const char
+                        *>(sample), dataSize);
                     }
-                } else {
-                    // Interleaved: 所有通道交错排列
-                    audioFile.write(
-                        reinterpret_cast<const char *>(avFrame->data[0]),
-                        avFrame->nb_samples * nb_channels * dataSize);
                 }
+                // Interleaved: 所有通道交错排列
+                // audioFile.write(
+                //     reinterpret_cast<const char *>(avFrame->data[0]),
+                //     avFrame->nb_samples * nb_channels * dataSize);
             }
         }
         av_frame_unref(avFrame);
         av_packet_unref(avPacket);
     }
+
+    videoFile.close();
+    audioFile.close();
 
     av_frame_free(&avFrame);
     av_packet_free(&avPacket);

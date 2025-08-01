@@ -10,5 +10,5 @@ Requires:
 Requires.private: 
 Conflicts:
 Libs: -L${libdir}  -lavutil 
-Libs.private: -lm -luser32 -lbcrypt -latomic
+Libs.private: -lm -lOpenCL -luser32 -lbcrypt -latomic
 Cflags: -I${includedir}
