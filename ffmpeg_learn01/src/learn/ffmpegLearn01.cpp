@@ -7,7 +7,7 @@ void list_protocols() {
 
     std::cout << "Input protocols:" << std::endl;
     while ((name = avio_enum_protocols(&opaque, 0))) {
-        std::cout << "name" << name << "\n";  // 这里应当包含 file
+        std::cout << "name: " << name << "\n";  // 这里应当包含 file
     }
 }
 
