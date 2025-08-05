@@ -1,7 +1,6 @@
-#include "learn01.hpp"
-#include "RecordPcm.hpp"
+#include "learn001.hpp"
 
 int main(int, char**){
-    record(); // 调用录音函数
+    coroutineHello();
     return 0;
 }
