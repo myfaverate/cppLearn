@@ -12,7 +12,11 @@ extern "C" {
 #include <sstream>
 #include <filesystem>
 #include <iostream>
+#include <random>
 
+void helloWorld();
+void helloWorld1();
+void helloWorld2();
 void message();
 void loadImage(const std::string_view &imagePath, const std::string_view &vertPath, const std::string_view &shaderPath);
 
