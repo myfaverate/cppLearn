@@ -1,8 +1,5 @@
-#include <iostream>
-
-#include "learn001.hpp"
+#include "learn011.hpp"
 
 int main(int, char**){
-    helloWorld2();
-    std::cout << "Hello, from opengl_learn03!\n";
+    learn02HelloWorld1();
 }

@@ -28,6 +28,9 @@ add_executable(opengl_learn03 main.cpp ${SOURCES})
 # 设置头文件包含路径 
 target_include_directories(${CMAKE_PROJECT_NAME}
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/learn01
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/learn02
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/std
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/glm
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
