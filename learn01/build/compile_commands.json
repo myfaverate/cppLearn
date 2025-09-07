@@ -1,14 +1,20 @@
 [
 {
   "directory": "D:/SoftWare/LanguageProjects/C++Projects/learn01/build",
-  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -g -std=c++23 -o CMakeFiles\\learn01.dir\\main.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\main.cpp",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn01 -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn02 -g -std=c++26 -Og -g -o CMakeFiles\\learn01.dir\\main.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\main.cpp",
   "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\main.cpp",
   "output": "CMakeFiles\\learn01.dir\\main.cpp.obj"
 },
 {
   "directory": "D:/SoftWare/LanguageProjects/C++Projects/learn01/build",
-  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -g -std=c++23 -o CMakeFiles\\learn01.dir\\src\\source\\add.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\source\\add.cpp",
-  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\source\\add.cpp",
-  "output": "CMakeFiles\\learn01.dir\\src\\source\\add.cpp.obj"
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn01 -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn02 -g -std=c++26 -Og -g -o CMakeFiles\\learn01.dir\\src\\learn01\\learn01.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\learn01\\learn01.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\learn01\\learn01.cpp",
+  "output": "CMakeFiles\\learn01.dir\\src\\learn01\\learn01.cpp.obj"
+},
+{
+  "directory": "D:/SoftWare/LanguageProjects/C++Projects/learn01/build",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn01 -ID:/SoftWare/LanguageProjects/C++Projects/learn01/include/learn02 -g -std=c++26 -Og -g -o CMakeFiles\\learn01.dir\\src\\learn02\\learn02.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\learn02\\learn02.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\learn01\\src\\learn02\\learn02.cpp",
+  "output": "CMakeFiles\\learn01.dir\\src\\learn02\\learn02.cpp.obj"
 }
 ]

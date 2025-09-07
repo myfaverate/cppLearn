@@ -64,7 +64,7 @@ UpdateType:
 
 # Compiler info
 Compiler: D:/SoftWare/msys64/ucrt64/bin/c++.exe
-CompilerVersion: 14.2.0
+CompilerVersion: 15.1.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

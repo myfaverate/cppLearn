@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-ninja"
+	BuildStamp="20250824-0458-Experimental"
+	Name="zsh"
+	Generator="ctest-4.0.3"
+	CompilerName="D:/SoftWare/msys64/ucrt64/bin/c++.exe"
+	CompilerVersion="15.1.0"
+	OSName="Windows"
+	Hostname="zsh"
+	OSRelease=" Personal"
+	OSVersion=" (Build 26100)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="0"
+	ModelID="0"
+	ModelName=""
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="27970"
+	TotalPhysicalMemory="16194"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2592"
+	>
+	<Testing>
+		<StartDateTime>Sep 07 11:56 中国标准时间</StartDateTime>
+		<StartTestTime>1757217379</StartTestTime>
+		<TestList/>
+		<EndDateTime>Sep 07 11:56 中国标准时间</EndDateTime>
+		<EndTestTime>1757217379</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

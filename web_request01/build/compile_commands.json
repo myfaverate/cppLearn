@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/SoftWare/LanguageProjects/C++Projects/web_request01/build",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -ID:/SoftWare/LanguageProjects/C++Projects/web_request01/include/learn01 -ID:/SoftWare/LanguageProjects/C++Projects/web_request01/include/learn02 -g -std=c++26 -o CMakeFiles\\web_request01.dir\\main.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\web_request01\\main.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\web_request01\\main.cpp",
+  "output": "CMakeFiles\\web_request01.dir\\main.cpp.obj"
+},
+{
+  "directory": "D:/SoftWare/LanguageProjects/C++Projects/web_request01/build",
+  "command": "D:\\SoftWare\\msys64\\ucrt64\\bin\\c++.exe -ID:/SoftWare/LanguageProjects/C++Projects/web_request01/include/learn01 -ID:/SoftWare/LanguageProjects/C++Projects/web_request01/include/learn02 -g -std=c++26 -o CMakeFiles\\web_request01.dir\\src\\learn02\\learn02.cpp.obj -c D:\\SoftWare\\LanguageProjects\\C++Projects\\web_request01\\src\\learn02\\learn02.cpp",
+  "file": "D:\\SoftWare\\LanguageProjects\\C++Projects\\web_request01\\src\\learn02\\learn02.cpp",
+  "output": "CMakeFiles\\web_request01.dir\\src\\learn02\\learn02.cpp.obj"
+}
+]

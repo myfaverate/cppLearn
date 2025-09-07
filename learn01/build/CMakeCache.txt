@@ -17,6 +17,9 @@
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/Boost-1.88.0
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=D:/SoftWare/msys64/ucrt64/bin/addr2line.exe
 
@@ -302,6 +305,15 @@ CTEST_SUBMIT_RETRY_DELAY:STRING=5
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Path to a file.
+GLUT_INCLUDE_DIR:PATH=D:/SoftWare/msys64/ucrt64/include
+
+//Path to a library.
+GLUT_glut_LIBRARY_DEBUG:FILEPATH=GLUT_glut_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GLUT_glut_LIBRARY_RELEASE:FILEPATH=D:/SoftWare/msys64/ucrt64/lib/libfreeglut.dll.a
+
 //Command to build the project
 MAKECOMMAND:STRING=D:\SoftWare\msys64\ucrt64\bin\cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
 
@@ -311,8 +323,47 @@ MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
 //File that contains suppressions for the memory checker
 MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
+//OpenGL library for win32
+OPENGL_gl_LIBRARY:STRING=opengl32
+
+//GLU library for win32
+OPENGL_glu_LIBRARY:STRING=glu32
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=D:/SoftWare/msys64/ucrt64/bin/pkg-config.exe
+
 //Name of the computer/site where compile is being run
 SITE:STRING=zsh
+
+//The directory containing a CMake configuration file for boost_assert.
+boost_assert_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_assert-1.88.0
+
+//The directory containing a CMake configuration file for boost_config.
+boost_config_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_config-1.88.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_headers-1.88.0
+
+//The directory containing a CMake configuration file for boost_mp11.
+boost_mp11_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_mp11-1.88.0
+
+//The directory containing a CMake configuration file for boost_predef.
+boost_predef_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_predef-1.88.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_system-1.88.0
+
+//The directory containing a CMake configuration file for boost_throw_exception.
+boost_throw_exception_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_throw_exception-1.88.0
+
+//The directory containing a CMake configuration file for boost_variant2.
+boost_variant2_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_variant2-1.88.0
+
+//The directory containing a CMake configuration file for boost_winapi.
+boost_winapi_DIR:PATH=D:/SoftWare/msys64/ucrt64/lib/cmake/boost_winapi-1.88.0
 
 //Value Computed by CMake
 learn01_BINARY_DIR:STATIC=D:/SoftWare/LanguageProjects/C++Projects/learn01/build
@@ -322,6 +373,9 @@ learn01_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 learn01_SOURCE_DIR:STATIC=D:/SoftWare/LanguageProjects/C++Projects/learn01
+
+//Path to a library.
+pkgcfg_lib_PC_GLUT_freeglut:FILEPATH=D:/SoftWare/msys64/ucrt64/lib/libfreeglut.dll.a
 
 
 ########################
@@ -335,11 +389,11 @@ CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=d:/SoftWare/LanguageProjects/C++Projects/learn01/build
 //Major version of cmake used to create the current loaded cache
-CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
+CMAKE_CACHE_MAJOR_VERSION:INTERNAL=4
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=31
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=0
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=5
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/cmake.exe
 //Path to cpack program executable.
@@ -415,6 +469,8 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 CMAKE_HOME_DIRECTORY:INTERNAL=D:/SoftWare/LanguageProjects/C++Projects/learn01
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
+//Name of CMakeLists files to read
+CMAKE_LIST_FILE_NAME:INTERNAL=CMakeLists.txt
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM
 CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -514,18 +570,74 @@ CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
 CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Details about finding GLUT
+FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[D:/SoftWare/msys64/ucrt64/lib/libfreeglut.dll.a][D:/SoftWare/msys64/ucrt64/include][v()]
+//Details about finding OpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][ ][v()]
+//ADVANCED property for variable: GLUT_INCLUDE_DIR
+GLUT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_glut_LIBRARY_DEBUG
+GLUT_glut_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_glut_LIBRARY_RELEASE
+GLUT_glut_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
 MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
 MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gl_LIBRARY
+OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glu_LIBRARY
+OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+PC_GLUT_CFLAGS:INTERNAL=-ID:/SoftWare/msys64/ucrt64/bin/../include
+PC_GLUT_CFLAGS_I:INTERNAL=
+PC_GLUT_CFLAGS_OTHER:INTERNAL=
+PC_GLUT_FOUND:INTERNAL=1
+PC_GLUT_INCLUDEDIR:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../include
+PC_GLUT_INCLUDE_DIRS:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../include
+PC_GLUT_LDFLAGS:INTERNAL=-LD:/SoftWare/msys64/ucrt64/bin/../lib;-lfreeglut
+PC_GLUT_LDFLAGS_OTHER:INTERNAL=
+PC_GLUT_LIBDIR:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../lib
+PC_GLUT_LIBRARIES:INTERNAL=freeglut
+PC_GLUT_LIBRARY_DIRS:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../lib
+PC_GLUT_LIBS:INTERNAL=
+PC_GLUT_LIBS_L:INTERNAL=
+PC_GLUT_LIBS_OTHER:INTERNAL=
+PC_GLUT_LIBS_PATHS:INTERNAL=
+PC_GLUT_MODULE_NAME:INTERNAL=freeglut
+PC_GLUT_PREFIX:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/..
+PC_GLUT_STATIC_CFLAGS:INTERNAL=-ID:/SoftWare/msys64/ucrt64/bin/../include;-DFREEGLUT_STATIC
+PC_GLUT_STATIC_CFLAGS_I:INTERNAL=
+PC_GLUT_STATIC_CFLAGS_OTHER:INTERNAL=-DFREEGLUT_STATIC
+PC_GLUT_STATIC_INCLUDE_DIRS:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../include
+PC_GLUT_STATIC_LDFLAGS:INTERNAL=-LD:/SoftWare/msys64/ucrt64/bin/../lib;-lfreeglut;-lopengl32;-lwinmm;-lgdi32
+PC_GLUT_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_GLUT_STATIC_LIBDIR:INTERNAL=
+PC_GLUT_STATIC_LIBRARIES:INTERNAL=freeglut;opengl32;winmm;gdi32
+PC_GLUT_STATIC_LIBRARY_DIRS:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../lib
+PC_GLUT_STATIC_LIBS:INTERNAL=
+PC_GLUT_STATIC_LIBS_L:INTERNAL=
+PC_GLUT_STATIC_LIBS_OTHER:INTERNAL=
+PC_GLUT_STATIC_LIBS_PATHS:INTERNAL=
+PC_GLUT_VERSION:INTERNAL=3.6.0
+PC_GLUT_freeglut_INCLUDEDIR:INTERNAL=
+PC_GLUT_freeglut_LIBDIR:INTERNAL=
+PC_GLUT_freeglut_PREFIX:INTERNAL=
+PC_GLUT_freeglut_VERSION:INTERNAL=
+PC_GLUT_glut_INCLUDEDIR:INTERNAL=
+PC_GLUT_glut_LIBDIR:INTERNAL=
+PC_GLUT_glut_PREFIX:INTERNAL=
+PC_GLUT_glut_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
 SITE-ADVANCED:INTERNAL=1
-//linker supports push/pop state
-_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
-//linker supports push/pop state
-_CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
-//linker supports push/pop state
-_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+__pkg_config_arguments_PC_GLUT:INTERNAL=QUIET;freeglut
+__pkg_config_checked_PC_GLUT:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_GLUT_freeglut
+pkgcfg_lib_PC_GLUT_freeglut-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=D:/SoftWare/msys64/ucrt64/bin/../lib
 
