@@ -458,6 +458,8 @@ void learn04(){
         std::cout << "result: " << i << ": " <<  results[i].get() << "\n";
     }
 
+    std::cout << "lib: " << __cpp_lib_coroutine << "\n";
+
     // 停止 io_context
     work.reset();
     for(auto& t : threads) t.join();
