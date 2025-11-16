@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Person id="1">
+    <name>zsh</name>
+    <age>18</age>
+    <sex>猛男</sex>
+    <weight>120.0</weight>
+</Person>

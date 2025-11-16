@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "qlabel": "cpp",
+        "qnetworkaccessmanager": "cpp"
+    }
+}
