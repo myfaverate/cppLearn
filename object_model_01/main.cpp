@@ -1,18 +1,14 @@
+
 #include <iostream>
-#include <initializer_list>
-#include <cassert>
-auto main(int, const char**) -> int {
-#ifdef NDEBUG
-    std::cout << "NDEBUG is defined, assert() will not be evaluated." << std::endl;
-#else
-    std::cout << "NDEBUG is not defined, assert() will be evaluated." << std::endl;
-#endif
-    std::cout << "file: " << __FILE__ << std::endl;
-    std::cout << "function: " << __func__ << std::endl;
-    std::cout << "line: " << __LINE__ << std::endl;
-    std::cout << "time: " << __TIME__ << std::endl;
-    std::cout << "date: " << __DATE__ << std::endl;
-    assert(2 + 2 == 4); // This assertion will pass.
-    assert(2 + 2 == 5); // This assertion will fail and terminate the
-    return 0;
+
+auto main(const int argc, const char** const argv) -> int { 
+    for (int i = 0; i < argc; ++i) {
+        std::cout << "argv[" << i << "] = " << argv[i] << std::endl;
+    }
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        std::cout << line << std::endl;
+    }
+    return 0; 
 }
+// https://www.bilibili.com/video/BV13Q4y1C7hS?spm_id_from=333.788.player.switch&vd_source=fb5fc0881b2bb1a411566e5b2f1c7c7e&p=115

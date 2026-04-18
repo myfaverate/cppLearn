@@ -1,36 +1,36 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(object_model_01 VERSION 0.1.0 LANGUAGES C CXX)
+project(bsdiff VERSION 0.1.0 LANGUAGES C CXX)
 
 # ✅ 设置 C++ 标准
-set(CMAKE_CXX_STANDARD 26)  # 使用 C++26 标准
+set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)  # 强制使用指定标准
 set(CMAKE_CXX_EXTENSIONS OFF)        # 禁用编译器扩展（使用纯标准）
 
+
 # 查找源文件
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
-        "src/*.cpp"
-        "src/*.c"
-) 
-
-add_executable(${CMAKE_PROJECT_NAME} main.cpp ${SOURCES})
-
-# 设置头文件包含路径 
-target_include_directories(${CMAKE_PROJECT_NAME}
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/learn01
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/learn02
+    "src/*.cpp"
+    "src/*.c"
 )
 
-# 1. 寻找 OpenSSL 软件包
-find_package(OpenSSL REQUIRED)
+message("CMAKE_PROJECT_NAME: ${CMAKE_PROJECT_NAME}")
 
-# 3. 链接 OpenSSL 库
-# OpenSSL::Crypto 对应你命令行里的 -lcrypto
-# 如果你需要用到 SSL 相关功能（如 https），可以再加上 OpenSSL::SSL
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE OpenSSL::Crypto)
+# add_library(${CMAKE_PROJECT_NAME} SHARED main.cpp ${SOURCES})
+add_executable(${CMAKE_PROJECT_NAME} main.cpp ${SOURCES})
 
-# 可选：打印找到的路径，方便调试
-message(STATUS "OpenSSL Include: ${OPENSSL_INCLUDE_DIR}")
-message(STATUS "OpenSSL Libraries: ${OPENSSL_LIBRARIES}")
+if(WIN32)
+# 让 JNI 在 Windows/MinGW 下生成 hello.dll，避免默认的 libhello.dll
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
+    PREFIX ""
+    OUTPUT_NAME ${CMAKE_PROJECT_NAME}
+)
+endif()
+
+# 设置头文件包含路径
+target_include_directories(${CMAKE_PROJECT_NAME}
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/bsdiff
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/HelloWorld
+)
 
 
 if(MSVC)
@@ -47,7 +47,7 @@ else()
 endif()
 
 include(CTest)
-enable_testing() 
+enable_testing()
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
