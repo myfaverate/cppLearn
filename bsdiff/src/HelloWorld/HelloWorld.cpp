@@ -16,7 +16,7 @@ static std::vector<uint8_t> load_file(const char* path) {
     FILE* f = fopen(path, "rb");
     if (!f) throw std::runtime_error(std::string("cannot open: ") + path);
     fseek(f, 0, SEEK_END);
-    long sz = ftell(f);
+    auto sz = ftell(f);
     rewind(f);
     std::vector<uint8_t> buf(sz);
     fread(buf.data(), 1, sz, f);
@@ -50,7 +50,7 @@ void create_patch(const char* old_path, const char* new_path, const char* patch_
 }
 
 // ⑤ 应用补丁：old_file + patch_file → restored_file
-void apply_patch(const char* old_path, const char* patch_path, const char* out_path) {
+void apply_patch(const char* old_path, const char* out_path, const char* patch_path) {
     std::vector<uint8_t> old_data = load_file(old_path);
 
     FILE* pf = fopen(patch_path, "rb");

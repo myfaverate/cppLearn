@@ -39,6 +39,8 @@ target_include_directories(${CMAKE_PROJECT_NAME}
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/HelloWorld
 )
 
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE brotlienc)
+
 if(MSVC)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4 /WX)
 else()
