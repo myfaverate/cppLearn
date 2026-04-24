@@ -2,10 +2,11 @@
 
 #include <iostream>
 
-
 int main(){
-    create_patch("D:/SoftWare/LanguageProjects/C++Projects/bsdiff/Hello.txt", "D:/SoftWare/LanguageProjects/C++Projects/bsdiff/Hello2.txt", "patch.bin");
-    apply_patch("D:/SoftWare/LanguageProjects/C++Projects/bsdiff/Hello.txt", "D:/SoftWare/LanguageProjects/C++Projects/bsdiff/HelloTmp.txt", "D:/SoftWare/LanguageProjects/C++Projects/bsdiff/build/patch.bin");
+    // create_patch("/Users/zsh/Projects/CppProjects/bsdiff/hello1.txt", "/Users/zsh/Projects/CppProjects/bsdiff/hello2.txt", "/Users/zsh/Projects/CppProjects/bsdiff/hello.patch");
+    apply_patch("/Users/zsh/Projects/CppProjects/bsdiff/hello1.txt", "/Users/zsh/Projects/CppProjects/bsdiff/hello2.txt", "/Users/zsh/Projects/CppProjects/bsdiff/hello.patch");
     std::cout << "Hello, from bsdiff!\n";
+
     return 0;
 }
+// https\://mirrors.cloud.tencent.com/gradle
