@@ -22,9 +22,9 @@ void create_patch(const char* old_file, const char* new_file, const char* patch_
     struct stat old_st;
     if (fstat(old_fd_guard.fd, &old_st) < 0) throw std::runtime_error("cannot stat old file");
     const size_t old_size = old_st.st_size;
-    // void* old_data = mmap(nullptr, old_size, PROT_READ, MAP_PRIVATE, old_fd_guard.fd, 0);
-    const MmapGuard old_mmap_guard(mmap(nullptr, old_size, PROT_READ, MAP_PRIVATE, old_fd_guard.fd, 0), old_size);
-    if (old_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap old file");
+    
+    const MmapGuard old_mmap_guard(old_size > 0 ? mmap(nullptr, old_size, PROT_READ, MAP_PRIVATE, old_fd_guard.fd, 0) : nullptr, old_size);
+    if (old_size > 0 && old_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap old file");
 
     // 更新文件
     const FdGuard new_fd_guard(open(new_file, O_RDONLY));
@@ -32,8 +32,8 @@ void create_patch(const char* old_file, const char* new_file, const char* patch_
     struct stat new_st;
     if (fstat(new_fd_guard.fd, &new_st) < 0) throw std::runtime_error("cannot stat new file");
     const size_t new_size = new_st.st_size;
-    const MmapGuard new_mmap_guard(mmap(nullptr, new_size, PROT_READ, MAP_PRIVATE, new_fd_guard.fd, 0), new_size);
-    if (new_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap new file");
+    const MmapGuard new_mmap_guard(new_size > 0 ? mmap(nullptr, new_size, PROT_READ, MAP_PRIVATE, new_fd_guard.fd, 0) : nullptr, new_size);
+    if (new_size > 0 && new_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap new file");
 
     // 生成的patch文件
     const FileGuard patch_file_guard(fopen(patch_file, "wb"));
@@ -64,8 +64,8 @@ void apply_patch(const char* old_file, const char* new_file, const char* patch_p
     struct stat old_st;
     if (fstat(old_fd_guard.fd, &old_st) < 0) throw std::runtime_error("cannot stat old file");
     const size_t old_size = old_st.st_size;
-    const MmapGuard old_mmap_guard(mmap(nullptr, old_size, PROT_READ, MAP_PRIVATE, old_fd_guard.fd, 0), old_size);
-    if (old_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap old file");
+    const MmapGuard old_mmap_guard(old_size > 0 ? mmap(nullptr, old_size, PROT_READ, MAP_PRIVATE, old_fd_guard.fd, 0) : nullptr, old_size);
+    if (old_size > 0 && old_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap old file");
 
     // patch 文件
     const FileGuard patch_file_guard(fopen(patch_path, "rb"));
@@ -83,8 +83,8 @@ void apply_patch(const char* old_file, const char* new_file, const char* patch_p
     if (new_fd_guard.fd < 0) throw std::runtime_error("cannot create new file");
     if (ftruncate(new_fd_guard.fd, new_size) < 0) throw std::runtime_error("cannot set new file size");
     printf("new file size: %lld bytes\n", new_size);
-    const MmapGuard new_mmap_guard(mmap(nullptr, new_size, PROT_READ | PROT_WRITE, MAP_SHARED, new_fd_guard.fd, 0), new_size);
-    if (new_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap new file");
+    const MmapGuard new_mmap_guard(new_size > 0 ? mmap(nullptr, new_size, PROT_READ | PROT_WRITE, MAP_SHARED, new_fd_guard.fd, 0) : nullptr, new_size);
+    if (new_size > 0 && new_mmap_guard.addr == MAP_FAILED) throw std::runtime_error("cannot mmap new file");
 
     bspatch_stream stream{};
     stream.opaque = patch_file_guard.f;
