@@ -26,17 +26,16 @@
  */
 
 #ifndef BSPATCH_H
-# define BSPATCH_H
+#define BSPATCH_H
 
-# include <stdint.h>
+#include <stdint.h>
 
-struct bspatch_stream
-{
+struct bspatch_stream {
 	void* opaque;
 	int (*read)(const struct bspatch_stream* stream, void* buffer, int length);
 };
 
-int bspatch(const uint8_t* old_data, int64_t oldsize, uint8_t* new_data, int64_t newsize, struct bspatch_stream* stream);
+int bspatch(const uint8_t* old_data, int64_t old_size, uint8_t* new_data, int64_t new_size, struct bspatch_stream* stream);
 
 #endif
 
