@@ -28,6 +28,8 @@
 #ifndef BSDIFF_H
 #define BSDIFF_H
 
+#include <divsufsort64.h>
+
 #include <stddef.h>
 #include <stdint.h>
 

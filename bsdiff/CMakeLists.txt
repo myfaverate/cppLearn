@@ -14,9 +14,21 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
 )
 
 message("CMAKE_PROJECT_NAME: ${CMAKE_PROJECT_NAME}")
+message("CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
+
+# 1. 设置 libdivsufsort 的编译选项（必须在 add_subdirectory 之前）
+set(BUILD_DIVSUFSORT64 ON CACHE BOOL "Enable 64-bit support" FORCE)
+set(BUILD_EXAMPLES OFF CACHE BOOL "Disable examples" FORCE)
+# 为什么不是动态库？因为 libdivsufsort 的接口非常简单，且不需要频繁调用，静态库更适合这种情况，避免了动态库的加载和符号解析开销。
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static lib" FORCE)
+# 2. 添加子项目
+add_subdirectory(third_party/libdivsufsort)
 
 # add_library(${CMAKE_PROJECT_NAME} SHARED main.cpp ${SOURCES})
 add_executable(${CMAKE_PROJECT_NAME} main.cpp ${SOURCES})
+
+# 3. 链接 libdivsufsort 库
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE divsufsort64)
 
 if(WIN32)
 # 让 JNI 在 Windows/MinGW 下生成 hello.dll，避免默认的 libhello.dll
@@ -28,10 +40,11 @@ endif()
 
 # 设置头文件包含路径
 target_include_directories(${CMAKE_PROJECT_NAME}
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/bsdiff
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/HelloWorld
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/bsdiff
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/HelloWorld
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/third_party/libdivsufsort/include
+    PRIVATE ${CMAKE_PROJECT_NAME}/third_party/libdivsufsort/include
 )
-
 
 if(MSVC)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4 /WX)
