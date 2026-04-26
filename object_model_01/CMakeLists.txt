@@ -21,7 +21,7 @@ target_include_directories(${CMAKE_PROJECT_NAME}
 )
 
 # 1. 寻找 OpenSSL 软件包
-find_package(OpenSSL REQUIRED)
+find_package(OpenSSL REQUIRED)   
 
 # 3. 链接 OpenSSL 库
 # OpenSSL::Crypto 对应你命令行里的 -lcrypto
@@ -36,7 +36,6 @@ message(STATUS "OpenSSL Libraries: ${OPENSSL_LIBRARIES}")
 if(MSVC)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4 /WX)
 else()
-    message("no MSVC")
     target_compile_options(
         ${CMAKE_PROJECT_NAME} PRIVATE -Wall
         -Werror # 警告转错误
@@ -47,7 +46,24 @@ else()
 endif()
 
 include(CTest)
-enable_testing() 
+enable_testing()
+
+# --- Test executable ---
+add_executable(test_sha256sum
+    tests/test_sha256sum.cpp
+    src/learn02/sha256sum.cpp
+)
+target_include_directories(test_sha256sum
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/learn02
+)
+target_link_libraries(test_sha256sum PRIVATE OpenSSL::Crypto)
+if(MSVC)
+    target_compile_options(test_sha256sum PRIVATE /W4 /WX)
+else()
+    target_compile_options(test_sha256sum PRIVATE -Wall -Wextra -pedantic)
+endif()
+
+add_test(NAME sha256sum_test COMMAND test_sha256sum)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -19,7 +19,7 @@ target_include_directories(${CMAKE_PROJECT_NAME}
 )
 
 # ✅ 查找 Qt6
-find_package(Qt6 REQUIRED COMPONENTS Widgets Network Sql)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Network Sql)   
 # ✅ 链接 Qt6 库
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Network Qt6::Sql)
 
